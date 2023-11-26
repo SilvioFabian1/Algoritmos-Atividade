@@ -1,9 +1,8 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-
 void bubbleSort() {
-	int num[] = { 5,2,3,1 }, aux, i, j;
+	int num[] = { 5,2,3,1,4 }, aux, i, j;
 	int n = sizeof(num) / sizeof(num[0]);
 
 	for (i = 0; i < n - 1; i++) {
@@ -47,12 +46,33 @@ void selectionSort() {
 	for (i = 0; i < n; i++) {
 		printf("%d ", num[i]);
 	}
+	printf("\n");
+}
 
+void insertionsort() {
+	int num[] = { 11,12,13,14,15 };
+	int n = sizeof(num) / sizeof(num[0]), i, j, chave;
+
+	for (i = 1; i < n; i++) {
+		chave = num[i];
+		j = i - 1;
+		while (j >= 0 && num[j] > chave) {
+			num[j + 1] = num[j];
+			j--;
+		}
+		num[j + 1] = chave;
+	}
+
+	printf("Este eh o Insertion Sort funcionando: ");
+	for (i = 0; i < n; i++) {
+		printf("%d ", num[i]);
+	}
 }
 
 int main() {
 	
 	bubbleSort();
 	selectionSort();
+	insertionsort();
 	return 0;
 }
